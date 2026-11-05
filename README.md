@@ -5,9 +5,9 @@
 ## 瀏覽方式
 
 - 首頁顯示全部 24 張封面。滑鼠移入時放大，顯示粗體黑字座號與姓名；照片不加壓色遮罩。
-- 點選後，左側只顯示該生封面放大圖；右側先顯示「學習單02」的完整設計圖。
-- 右側共 8 頁：設計圖、第 3～8 題文字填答、封底空白處文字。前面的圈選、連連看不顯示。
-- 點選數字或左右箭頭翻頁，也能使用鍵盤 ← →；關閉按鈕或 Esc 回到全部封面。
+- 點選後，左側只顯示該生封面放大圖；右側顯示「學習單02」的完整設計圖。
+- 目前只顯示設計圖，其他文字題與封底填答頁、翻頁控制均暫時隱藏。原始 CSV 填答仍保留。
+- 關閉按鈕或 Esc 回到全部封面。之後要恢復文字頁，可將 `app.js` 的 `SHOW_TEXT_ANSWERS` 改為 `true`。
 - 桌面版固定為整個視窗高度，首頁與內容檢視均不使用捲軸。未設計手機版。
 - 13 號的空白作品仍是原本的空白照片；17 號橘色貓咪依確認歸為陳莉蓓。
 
@@ -64,4 +64,4 @@ python -m http.server 8765 --bind 127.0.0.1
 - `assets/designs/`：24 張學習單02照片，縮圖轉為 WebP。
 - `tools/xlsx_to_csv.py`：選用的 XLSX 匯出工具。
 
-字型使用 Google Fonts [Noto Sans TC／思源黑體系列](https://fonts.google.com/noto/specimen/Noto+Sans+TC)，字型檔已隨網站放在 `assets/fonts/`，不需要瀏覽者另外連線 Google Fonts。來源為 [Google Fonts 官方字型庫](https://github.com/google/fonts/tree/main/ofl/notosanstc)，隨附 SIL Open Font License 1.1。網站不依賴外部 JavaScript。
+網站字型由 Google Fonts 載入，優先使用 [Zen Maru Gothic](https://fonts.google.com/specimen/Zen+Maru+Gothic)，缺字時使用 [Huninn](https://fonts.google.com/specimen/Huninn)。Zen Maru Gothic 載入 400、500、700、900 字重，保留標題與姓名的粗體；Huninn 缺字補用亦允許瀏覽器呈現粗體。網站不依賴外部 JavaScript。

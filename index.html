@@ -7,7 +7,9 @@
   <meta name="description" content="翻開頂埔小小造書家的手抄紙作品，看看每個孩子的創作與想法。">
   <title>頂埔・小小造書家</title>
   <link rel="icon" href="./assets/sun.svg" type="image/svg+xml">
-  <link rel="preload" href="./assets/fonts/NotoSansTC.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Huninn&family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./styles.css">
   <script src="./app.js" defer></script>
 </head>
@@ -28,7 +30,7 @@
       <p class="gallery-hint" id="galleryHint"><span aria-hidden="true">↗</span> 點選一張封面，翻開創作故事</p>
     </section>
 
-    <aside class="reader" id="reader" aria-label="作品與填答內容" aria-hidden="true" inert>
+    <aside class="reader" id="reader" aria-label="作品設計檢視" aria-hidden="true" inert>
       <header class="reader-header">
         <div class="student-heading"><span class="student-seat" id="studentSeat"></span><h2 id="studentName"></h2></div>
         <button class="close-button" id="closeReader" type="button" aria-label="關閉作品，回到全部封面" title="關閉（Esc）">
@@ -39,7 +41,7 @@
         <div class="page-heading"><span class="page-eyebrow" id="pageEyebrow"></span><h3 id="pageTitle"></h3></div>
         <div class="page-body" id="pageBody"></div>
       </div>
-      <footer class="reader-footer">
+      <footer class="reader-footer" id="readerFooter" hidden>
         <div class="pager-row">
           <button class="arrow-button previous" id="previousPage" type="button" aria-label="上一頁" title="上一頁（←）">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5m7-7-7 7 7 7"/></svg>

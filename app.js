@@ -8,6 +8,8 @@ const COLUMNS = Object.freeze({
   q7: "01-7 最喜歡誰的書及原因", q8: "01-8 五次課程印象",
   title: "02 我是一本＿＿的書", back: "02 封底空白處文字"
 });
+// Keep the text pages available for later; show only the drawing for now.
+const SHOW_TEXT_ANSWERS = false;
 const PAGES = Object.freeze([
   { label: "我的封面設計", eyebrow: "把想像畫下來", type: "design" },
   { label: "閱讀《情批》這本書，帶給你什麼樣的感覺？", eyebrow: "學習單 01・第 3 題", key: "q3" },
@@ -17,7 +19,7 @@ const PAGES = Object.freeze([
   { label: "在同學之中，我最喜歡誰的書，為什麼？", eyebrow: "學習單 01・第 7 題", key: "q7" },
   { label: "在這五次的課程中，令你印象深刻的事情。", eyebrow: "學習單 01・第 8 題", key: "q8" },
   { label: "寫在封底的想法", eyebrow: "學習單 02・封底空白處", type: "back" }
-]);
+].filter(page => SHOW_TEXT_ANSWERS || page.type === "design"));
 const $ = id => document.getElementById(id);
 const exhibition = $("exhibition");
 const gallery = $("gallery");
@@ -237,6 +239,7 @@ PAGES.forEach((page, i) => {
   button.addEventListener("click", () => changePage(i));
   $("pageSteps").append(button);
 });
+$("readerFooter").hidden = PAGES.length < 2;
 $("closeReader").addEventListener("click", closeReader);
 $("previousPage").addEventListener("click", () => changePage(pageIndex - 1));
 $("nextPage").addEventListener("click", () => changePage(pageIndex + 1));
