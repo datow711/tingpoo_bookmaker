@@ -1,4 +1,4 @@
-# 頂埔・小小造書家
+# 頂埔607・小小造書家
 
 24 位學生的手抄紙作品展示頁。純 HTML、CSS、JavaScript，可直接部署到 GitHub Pages，不需要安裝套件或執行 build。
 
@@ -64,4 +64,4 @@ python -m http.server 8765 --bind 127.0.0.1
 - `assets/designs/`：24 張學習單02照片，縮圖轉為 WebP。
 - `tools/xlsx_to_csv.py`：選用的 XLSX 匯出工具。
 
-網站字型由 Google Fonts 載入，優先使用 [Zen Maru Gothic](https://fonts.google.com/specimen/Zen+Maru+Gothic)，缺字時使用 [Huninn](https://fonts.google.com/specimen/Huninn)。Zen Maru Gothic 載入 400、500、700、900 字重，保留標題與姓名的粗體；Huninn 缺字補用亦允許瀏覽器呈現粗體。網站不依賴外部 JavaScript。
+網站字型由 Google Fonts 載入，優先使用 [Zen Maru Gothic](https://fonts.google.com/specimen/Zen+Maru+Gothic)，缺字時使用 [Huninn](https://fonts.google.com/specimen/Huninn)。Zen Maru Gothic 載入 400、500、700、900 字重，保留標題與姓名的粗體；Huninn 缺字補用亦允許瀏覽器呈現粗體。學生姓名（封面浮字、內容標題與封面說明）統一使用 Huninn。網站不依賴外部 JavaScript。

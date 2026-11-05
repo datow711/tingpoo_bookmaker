@@ -18,6 +18,8 @@ body { height: 100dvh; display: flex; flex-direction: column; padding: 0 var(--e
 button { font: inherit; cursor: pointer; -webkit-tap-highlight-color: transparent; }
 button:focus-visible { outline: 3px solid var(--blue); outline-offset: 4px; }
 button:disabled { cursor: default; }
+/* Keep every student name in the same typeface. */
+.cover-label, #studentName, .is-open #galleryHint { font-family: "Huninn", "Microsoft JhengHei", sans-serif; }
 svg { display: block; width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .masthead { display: flex; align-items: center; justify-content: space-between; flex: 0 0 clamp(68px, 10vh, 96px); gap: 20px; }
 .brand { display: flex; align-items: center; gap: 12px; white-space: nowrap; }
