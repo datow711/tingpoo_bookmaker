@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fffaf0">
+  <meta name="description" content="翻開頂埔小小造書家的手抄紙作品，看看每個孩子的創作與想法。">
+  <title>頂埔・小小造書家</title>
+  <link rel="icon" href="./assets/sun.svg" type="image/svg+xml">
+  <link rel="preload" href="./assets/fonts/NotoSansTC.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <header class="masthead">
+    <div class="brand">
+      <img class="sun" src="./assets/sun.svg" alt="" width="48" height="48">
+      <h1>頂埔<span class="title-dot">・</span>小小造書家</h1>
+      <span class="work-count">24 件作品</span>
+    </div>
+    <p class="header-note">一張紙，藏著好多想像。</p>
+  </header>
+
+  <main class="exhibition" id="exhibition">
+    <section class="gallery-zone" aria-label="24 位小小造書家的作品">
+      <div class="gallery" id="gallery" aria-busy="true"></div>
+      <div class="selected-cover" id="selectedCover" hidden><img id="selectedCoverImage" alt=""></div>
+      <p class="gallery-hint" id="galleryHint"><span aria-hidden="true">↗</span> 點選一張封面，翻開創作故事</p>
+    </section>
+
+    <aside class="reader" id="reader" aria-label="作品與填答內容" aria-hidden="true" inert>
+      <header class="reader-header">
+        <div class="student-heading"><span class="student-seat" id="studentSeat"></span><h2 id="studentName"></h2></div>
+        <button class="close-button" id="closeReader" type="button" aria-label="關閉作品，回到全部封面" title="關閉（Esc）">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
+        </button>
+      </header>
+      <div class="reader-content" id="readerContent">
+        <div class="page-heading"><span class="page-eyebrow" id="pageEyebrow"></span><h3 id="pageTitle"></h3></div>
+        <div class="page-body" id="pageBody"></div>
+      </div>
+      <footer class="reader-footer">
+        <div class="pager-row">
+          <button class="arrow-button previous" id="previousPage" type="button" aria-label="上一頁" title="上一頁（←）">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5m7-7-7 7 7 7"/></svg>
+          </button>
+          <nav class="page-steps" id="pageSteps" aria-label="作品內容分頁"></nav>
+          <button class="arrow-button next" id="nextPage" type="button" aria-label="下一頁" title="下一頁（→）">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+          </button>
+        </div>
+        <div class="pager-caption"><span id="pageCount">01 / 08</span><span id="nextHint">接著，看看我的想法</span></div>
+      </footer>
+    </aside>
+  </main>
+
+  <div class="load-message" id="loadMessage" role="status"><span class="loading-dot" aria-hidden="true"></span><p>正在翻開大家的作品…</p></div>
+  <p class="sr-only" id="announcement" aria-live="polite"></p>
+  <noscript>請開啟 JavaScript，以瀏覽作品與學習單填答。</noscript>
+</body>
+</html>
