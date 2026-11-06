@@ -131,7 +131,7 @@ function fitGrid() {
   gallery.dataset.columns = String(best.cols);
 }
 
-function openStudent(student, button) {
+function openStudent(student, button, { focusClose = true } = {}) {
   selected = student; pageIndex = 0; lastButton = button;
   for (const b of gallery.querySelectorAll("button")) b.setAttribute("aria-pressed", String(b === button));
   $("studentSeat").textContent = String(student.seat).padStart(2, "0");
@@ -144,8 +144,17 @@ function openStudent(student, button) {
   exhibition.classList.add("is-open");
   $("galleryHint").textContent = `${student.seat} 號 ${student.name}的封面作品`;
   renderPage();
-  $("closeReader").focus({ preventScroll: true });
+  if (focusClose) $("closeReader").focus({ preventScroll: true });
   announce(`${student.seat} 號 ${student.name}，我的封面設計`);
+}
+
+function changeStudent(direction) {
+  if (!selected || students.length < 2) return;
+  const currentIndex = students.findIndex(student => student.seat === selected.seat);
+  const nextIndex = (currentIndex + direction + students.length) % students.length;
+  const student = students[nextIndex];
+  const button = gallery.querySelector(`[data-seat="${student.seat}"]`);
+  openStudent(student, button, { focusClose: false });
 }
 
 function closeReader() {
@@ -240,14 +249,16 @@ PAGES.forEach((page, i) => {
   $("pageSteps").append(button);
 });
 $("readerFooter").hidden = PAGES.length < 2;
+$("previousStudent").addEventListener("click", () => changeStudent(-1));
+$("nextStudent").addEventListener("click", () => changeStudent(1));
 $("closeReader").addEventListener("click", closeReader);
 $("previousPage").addEventListener("click", () => changePage(pageIndex - 1));
 $("nextPage").addEventListener("click", () => changePage(pageIndex + 1));
 document.addEventListener("keydown", e => {
   if (!selected || e.altKey || e.ctrlKey || e.metaKey) return;
   if (e.key === "Escape") { e.preventDefault(); closeReader(); }
-  if (e.key === "ArrowLeft") { e.preventDefault(); changePage(pageIndex - 1); }
-  if (e.key === "ArrowRight") { e.preventDefault(); changePage(pageIndex + 1); }
+  if (e.key === "ArrowLeft") { e.preventDefault(); changeStudent(-1); }
+  if (e.key === "ArrowRight") { e.preventDefault(); changeStudent(1); }
 });
 new ResizeObserver(() => {
   cancelAnimationFrame(resizeFrame);

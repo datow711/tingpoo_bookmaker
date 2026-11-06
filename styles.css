@@ -32,9 +32,13 @@ h1::after { content: ""; position: absolute; height: 5px; border-radius: 50%; bo
 .exhibition { display: grid; grid-template-columns: minmax(0, 1fr) 0fr; gap: 0; flex: 1; min-height: 0; padding-bottom: var(--edge); transition: grid-template-columns .48s cubic-bezier(.22,.8,.25,1), gap .48s; }
 .exhibition.is-open { grid-template-columns: minmax(0, 1.08fr) minmax(0, 1fr); gap: clamp(18px, 2.2vw, 36px); }
 .gallery-zone { display: flex; min-width: 0; min-height: 0; flex-direction: column; }
-.selected-cover { flex: 1; min-width: 0; min-height: 0; padding: 5px 12px; display: flex; justify-content: center; align-items: center; }
+.selected-cover { position: relative; flex: 1; min-width: 0; min-height: 0; padding: 5px 12px; display: flex; justify-content: center; align-items: center; }
 .selected-cover[hidden] { display: none; }
 .selected-cover img { display: block; max-width: 100%; max-height: 100%; width: auto; height: auto; border-radius: 14px; box-shadow: 0 8px 24px #342b2424; object-fit: contain; }
+.student-nav { position: absolute; top: 50%; z-index: 1; transform: translateY(-50%); display: grid; place-items: center; width: 42px; height: 42px; padding: 0; border: 0; border-radius: 50%; background: white; color: var(--blue); box-shadow: 0 3px 12px #342b2426; transition: background .2s; }
+.student-nav:hover { background: var(--yellow); }
+.previous-student { left: 0; }
+.next-student { right: 0; }
 .is-open .gallery { display: none; }
 .gallery { flex: 1; min-height: 0; display: grid; gap: var(--gap); padding: 8px; margin: -8px; }
 .cover-cell { position: relative; min-width: 0; min-height: 0; display: flex; align-items: center; justify-content: center; }
