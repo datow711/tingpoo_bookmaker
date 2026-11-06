@@ -100,7 +100,7 @@ function renderGallery() {
     image.draggable = false;
     const label = document.createElement("span");
     label.className = "cover-label";
-    label.textContent = `${student.seat} ${student.name}`;
+    label.textContent = student.name;
     button.append(image, label);
     button.addEventListener("click", () => openStudent(student, button));
     cell.append(button); fragment.append(cell);
